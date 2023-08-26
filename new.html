@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  button {
+    margin-top: 50px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #emergencyForm {
+    margin-top: 20px;
+    text-align: center;
+  
+  }
+</style>
+
+<script>
+    const emergencyButton = document.getElementById("emergencyButton");
+const emergencyForm = document.getElementById("emergencyForm");
+const emergencyInfoForm = document.getElementById("emergencyInfoForm");
+
+emergencyButton.addEventListener("click", () => {
+  getLocation();
+});
+
+emergencyInfoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const aadhar = document.getElementById("aadhar").value;
+  const severity = document.getElementById("severity").value;
+  
+  // You can send this information to a server or perform any other necessary actions.
+  // For this example, we'll just display an alert.
+  alert(`Emergency Details:\nName: ${name}\nAadhar: ${aadhar}\nSeverity: ${severity}`);
+});
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(`Location: ${latitude}, ${longitude}`);
+        showEmergencyForm();
+      },
+      (error) => {
+        console.error("Error getting location:", error);
+      }
+    );
+  } else {
+    console.error("Geolocation is not supported by this browser.");
+  }
+}
+
+function showEmergencyForm() {
+  emergencyButton.style.display = "none";
+  emergencyForm.style.display = "block";
+}
+</script>
+
+    <title>Accessible Digitalised Healthcare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links here -->
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Accessible Digitalised Healthcare</h1>
+        <p>Your Health is Our Priority</p>
+        <!-- Hero image or video here -->
+        <img src="https://th.bing.com/th/id/OIP.g7L6InFG-bxTv4uh5hgBKQHaE8?w=238&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="This is logo of ADH">
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service">
+            <h3>Resource Allocation</h3>
+            <p>We efficiently allocate resources to provide the best care.</p>
+        </div>
+        <div class="service">
+            <h3>Workforce Management</h3>
+            <p>Our skilled team ensures smooth operations.</p>
+        </div>
+        <div class="service">
+            <h3>Medicine Stock Management</h3>
+            <p>We keep track of medicine stocks to meet patient needs.</p>
+        </div>
+        <div class="service">
+            <h3>Edtech</h3>
+            <p>Educational resources for patients and professionals.</p>
+        </div>
+    </section>
+
+    <button id="emergencyButton">Emergency!</button>
+    <div id="emergencyForm" class="hidden">
+        <h2>Emergency Information</h2>
+        <form id="emergencyInfoForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+            <label for="aadhar">Aadhar Number:</label>
+            <input type="text" id="aadhar" required><br>
+            <label for="severity">Severity:</label>
+            <input type="number" id="severity" min="1" max="10" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Accessible Digitalised Healthcare</p>
+    </footer>
+
+    <script>
+        // Your JavaScript code here
+    </script>
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Webpage</title>
+</head>
+<style>
+    /* Your existing CSS styles here */
+
+/* Form container styles */
+.hidden {
+    display: none;
+}
+/* Your existing CSS styles here */
+
+/* Position the button at the top right middle */
+#emergencyButton {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Styling for the form container */
+.hidden {
+    display: none;
+}
+
+#emergencyFormContainer {
+    /* Your styles for the form container here */
+}
+
+
+#emergencyFormContainer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form styles */
+#emergencyForm {
+    text-align: center;
+}
+
+#emergencyForm h2 {
+    margin-bottom: 10px;
+}
+
+#emergencyForm label,
+#emergencyForm input,
+#emergencyForm select,
+#emergencyForm button {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+}
+
+#emergencyForm button {
+    background-color: ;
+    color: white
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const registerDoctorButton = document.getElementById("registerDoctorButton");
+
+    registerDoctorButton.addEventListener("click", function () {
+        window.location.href = "file.html"; // Replace with the correct HTML file name
+    });
+
+    // Rest of your JavaScript code
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const emergencyButton = document.getElementById("emergencyButton");
+    const formContainer = document.getElementById("emergencyFormContainer");
+  document.addEventListener("DOMContentLoaded", function () {
+    const emergencyButton = document.getElementById("emergencyButton");
+    const formContainer = document.getElementById("emergencyFormContainer");
+
+    emergencyButton.addEventListener("click", function () {
+        formContainer.classList.toggle("hidden");
+    });
+
+    // Rest of your JavaScript code
+});
+
+
+    emergencyButton.addEventListener("click", function () {
+        formContainer.classList.toggle("hidden");
+
+        // Get user's location
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    console.log("User's location: " + latitude + ", " + longitude);
+                },
+                function (error) {
+                    console.log("Error getting user's location: " + error.message);
+                }
+            );
+        }
+    });
+
+    const emergencyForm = document.getElementById("emergencyForm");
+
+    emergencyForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Collect form data
+        const formData = new FormData(emergencyForm);
+        const emergencyData = {};
+        formData.forEach((value, key) => {
+            emergencyData[key] = value;
+        });
+
+        // You can perform additional processing or validation here before submitting
+
+        // Simulate submitting the data to a server (this is just an example)
+        submitEmergencyData(emergencyData);
+    });
+
+    function submitEmergencyData(data) {
+        // Here you can implement the logic to send the emergency data to a server
+        // For example, you could use fetch() to send a POST request to your server
+        // You would typically handle server response, success, and error cases here
+        console.log("Emergency data submitted:", data);
+    }
+});
+
+</script>
+<body>
+    <header>
+        <!-- Your navigation and other header content here -->
+    </header>
+
+    <button id="registerDoctorButton">Register as a doctor</button>
+
+    <img style="top: 0px; left: 0px; width: 82px; height: 61px;"
+        src="https://i.imgur.com/FGbC8oc.png" alt="Logo" id="topLeftLogo">
+
+    <section>
+        <!-- Other content of your webpage -->
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Emergency Assistance</title>
+</head>
+<body>
+    <header>
+        <!-- Your navigation and other header content here -->
+    </header>
+    
+    <button id="emergencyButton">Emergency</button>
+
+    <section id="emergencyFormContainer" class="hidden">
+        <h2>Emergency Assistance</h2>
+        <form id="emergencyForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="aadhar">Aadhar Number:</label>
+            <input type="text" id="aadhar" name="aadhar" required>
+            
+            <label for="severity">Severity:</label>
+            <select id="severity" name="severity">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
